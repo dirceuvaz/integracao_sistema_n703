@@ -84,7 +84,7 @@ services:
       - MYSQL_USER=grupo_regulacao
       - MYSQL_PASSWORD=passwd25
     command: >
-      sh -c "./wait-for-it.sh mysql:3306 --timeout=60 --strict -- python manage.py migrate &&
+      sh -c "./wait-for-it.sh mysql:3306 --timeout=10 --strict -- python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
     networks:
       - app-network
