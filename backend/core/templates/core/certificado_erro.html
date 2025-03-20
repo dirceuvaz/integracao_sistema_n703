@@ -1,0 +1,12 @@
+<!-- filepath: /c:/wamp64/www/visita-regulada2/regulacao_medica/core/templates/core/certificado_erro.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container mt-4 p-4 bg-light rounded">
+    <h2>Erro ao Gerar Certificado</h2>
+    <div class="alert alert-danger" role="alert">
+        Você já gerou um certificado com informações diferentes. Use a mesma conta Google, nome completo e CPF para gerar outro certificado.
+    </div>
+    <a href="{% url 'home' %}" class="btn btn-primary">Voltar para o Início</a>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="p-4 bg-light rounded">
+        <h2 class="text-center">Passo 3. Iniciando sua jornada de plantão</h2>
+        <p class="text-justify">Você notará que no salão da CECIR existem bancadas. Cada bancada tem um computador, de uso do médico regulador. Identifique-se aos médicos do plantão e peça informação sobre em que bancada você pode sentar-se.</p>
+        
+        <figure class="text-center">
+            <img src="{% static 'core/imagens/bancada.jpeg' %}" alt="Bancada de Regulação" class="img-fluid mx-auto d-block">
+            <figcaption class="text-center">Legenda: Localize seu computador em sua bancada de regulação.</figcaption>
+        </figure>
+        
+        <p class="text-justify">Se o seu plantão iniciar às 7:00, você perceberá que a equipe administrativa somente inicia seu expediente às 8h, razão pela qual você começará seu trabalho antes de o coordenador do setor ambulatorial chegar. Apresente-se a ele após iniciado o expediente administrativo (08:00).</p>
+    </div>
+    <div class="d-flex justify-content-between mt-4 py-4">
+        <a href="{% url 'treinamento_passo2' %}" class="btn btn-secondary">Voltar</a>
+        <a href="{% url 'treinamento_passo4' %}" class="btn btn-primary">Próximo Passo</a>
+    </div>
+</div>
+{% endblock %}

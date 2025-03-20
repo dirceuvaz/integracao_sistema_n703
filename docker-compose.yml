@@ -1,0 +1,97 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: regulacao2025
+      MYSQL_DATABASE: db_regulacao_medica
+      MYSQL_USER: grupo_regulacao
+      MYSQL_PASSWORD: passwd25
+    volumes:
+      - mysql_data:/var/lib/mysql  # Volume para persistir os dados do MySQL
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "--host=localhost", "--user=root", "--password=regulacao2025"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    container_name: react_app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+    networks:
+      - app-network
+
+  server:
+    build: ./server
+    container_name: node_server
+    ports:
+      - "5001:5001"
+    depends_on:
+      - rabbitmq
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+    networks:
+      - app-network
+
+  django:
+    build: ./backend
+    container_name: django_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - rabbitmq
+      - mysql
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq
+      - DJANGO_SETTINGS_MODULE=regulacao_medica.settings
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=db_regulacao_medica
+      - MYSQL_USER=grupo_regulacao
+      - MYSQL_PASSWORD=passwd25
+    command: >
+      sh -c "./wait-for-it.sh mysql:3306 --timeout=60 --strict -- python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql_data:  # Definindo o volume para persistir os dados do MySQL

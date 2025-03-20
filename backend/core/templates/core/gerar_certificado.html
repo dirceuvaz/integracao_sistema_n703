@@ -1,0 +1,14 @@
+<!-- filepath: /C:/wamp64/www/visita-regulada2/regulacao_medica/core/templates/core/gerar_certificado.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="container mt-4 p-4 bg-light rounded text-center">
+    <h2>Gerar Certificado</h2> 
+    <br>
+    <form method="post">
+        {% csrf_token %}        
+        <button type="submit" class="btn btn-primary">Gerar Certificado</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!-- filepath: /c:/wamp64/www/visita-regulada2/regulacao_medica/core/templates/core/perfil.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container mt-4 p-4 bg-light rounded">
+    <h2 class="text-center">Para que o seu Certificado seja emitido com os seus dados reais, informe abaixo.</h2>    
+    <br>
+    <form method="post" class="text-center">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <div class="text-center">
+        <button type="submit" class="btn btn-primary">Enviar os dados</button>
+        </div
+    </form>
+</div>
+{% endblock %}

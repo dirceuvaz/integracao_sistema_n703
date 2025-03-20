@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="p-4 bg-light rounded">
+        <h2 class="text-center">Passo 1. Solicitando seu acesso aos computadores da CECIR antes de seu plantão.</h2>
+        <p class="text-justify">O acesso ao sistema operacional de cada computador ocorre por login e senha.</p>
+        
+        <figure class="text-center">
+            <img src="{% static 'core/imagens/Figura1.png' %}" alt="Tela inicial de acesso ao Sistema Operacional do computador de regulação" class="img-fluid mx-auto d-block">
+            <figcaption class="text-center">Legenda: Preencha com login e senha para ter acesso ao computador de sua bancada de regulação.</figcaption>
+        </figure>
+        
+        <p class="text-justify">Antes de seu primeiro plantão, você deve solicitar à coordenação de sua cooperativa o envio de suas informações de cadastro, para que o setor responsável da CECIR providencie sua senha de acesso ao Sistema Operacional do computador de sua bancada de regulação.</p>
+        
+        <p class="text-justify">Após logado no sistema operacional de sua máquina, você deverá abrir um navegador (sugestão: Chrome ou Firefox) e digitar <a href="https://saude.fastmedic.com.br/fortaleza" target="_blank">https://saude.fastmedic.com.br/fortaleza</a>.</p>
+        
+        <figure class="text-center">
+            <img src="{% static 'core/imagens/Figura2.png' %}" alt="Tela de acesso ao sistema de informática de regulação médica" class="img-fluid mx-auto d-block">
+            <figcaption class="text-center">Legenda: A regulação ambulatorial é representada em “CENTRAL DE PROCEDIMENTOS”.</figcaption>
+        </figure>
+        
+        <p class="text-justify">Você deverá clicar sob a opção Central de Procedimentos. Após esse passo, você será conduzido à tela de login do sistema de regulação médica, Fastmedic®.</p>
+        
+        <figure class="text-center">
+            <img src="{% static 'core/imagens/Figura3.png' %}" alt="Tela de login do sistema de regulação médica Fastmedic" class="img-fluid mx-auto d-block">
+            <figcaption class="text-center">Legenda: Preencha com seu usuário e senha, fornecidos com antecedência ao plantão por sua cooperativa.</figcaption>
+        </figure>
+        
+        <p class="text-justify">A coordenação de sua cooperativa deve ter-lhe fornecido login e senha de acesso ao sistema de regulação Fastmedic®. Essa solicitação deve ocorrer com antecedência ao seu primeiro plantão, através do e-mail: <a href="mailto:institucional@cecir.com.br">institucional@cecir.com.br</a>.</p>
+        
+        <div class="d-flex justify-content-between mt-4 py-4">
+            <a href="{% url 'home' %}" class="btn btn-secondary">Voltar</a>
+            <a href="{% url 'treinamento_passo2' %}" class="btn btn-primary">Próximo Passo</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

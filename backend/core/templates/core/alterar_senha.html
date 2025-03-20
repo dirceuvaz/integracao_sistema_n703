@@ -1,0 +1,23 @@
+<!-- filepath: /C:/wamp64/www/visita-regulada2/regulacao_medica/core/templates/core/alterar_senha.html -->
+{% extends "base_generic.html" %}
+
+{% block title %}Alterar Senha{% endblock %}
+
+{% block content %}
+<div class="container mt-4 p-4 bg-light rounded">
+    <h2 class="mb-4">Alterar Senha</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Alterar Senha</button>
+    </form>
+</div>
+{% endblock %}

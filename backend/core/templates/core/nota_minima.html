@@ -1,0 +1,12 @@
+<!-- filepath: /C:/wamp64/www/visita-regulada2/regulacao_medica/core/templates/core/nota_minima.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container mt-4 p-4 bg-light rounded">
+    <h2>Avaliação</h2>
+    <div class="alert alert-danger" role="alert">
+        Você não alcançou a nota mínima para gerar o certificado. Sua nota: {{ nota }}. Você precisa obter no mínimo 7 pontos para ter o certificado criado.
+    </div>
+    <a href="{% url 'questionario' %}" class="btn btn-primary">Tentar Novamente</a>
+</div>
+{% endblock %}

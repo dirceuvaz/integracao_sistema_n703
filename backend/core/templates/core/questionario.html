@@ -1,0 +1,292 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container mt-4 p-4 bg-light rounded">
+    <h2>Avaliação</h2>
+    <p class="alert alert-info">Você precisa obter no mínimo 7 pontos para ter o certificado criado.</p>
+    <form method="post" action="{% url 'questionario_submit' %}">
+        {% csrf_token %}
+        
+        <div class="mb-4">
+            <label for="pergunta1" class="form-label"><strong>Questão 1. Tema: Boas práticas em regulação. Marque a alternativa correta.</strong></label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta1" id="pergunta1a" value="a">
+                <label class="form-check-label" for="pergunta1a">
+                    a) Durante o ato de regulação médica, a função do médico regulador é aprovar as solicitações. Não cabe ao médico regulador priorizar a solicitação a partir da descrição de quadro clínico, em respeito a autonomia do médico solicitante.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta1" id="pergunta1b" value="b">
+                <label class="form-check-label" for="pergunta1b">
+                    b) Ao detalhar dor, o médico solicitante deverá descrever o padrão e ritmo de dor, fornecendo elementos para que o regulador possa priorizar adequadamente a solicitação de consulta ou de exame.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta1" id="pergunta1c" value="c">
+                <label class="form-check-label" for="pergunta1c">
+                    c) Ao descrever um quadro clínico como câncer, o médico regulador deverá priorizar a solicitação com a máxima prioridade possível, não importando a topografia do câncer e o estágio de tratamento.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta1" id="pergunta1d" value="d">
+                <label class="form-check-label" for="pergunta1d">
+                    d) Sabendo que a rotina das UAPS (Postos de Saúde) é bastante movimentada, é aceitável o aproveitamento de um CID principal para todas as solicitações.
+                </label>
+            </div>
+        </div>        
+        
+        <div class="mb-4">
+            <label for="pergunta2" class="form-label"><strong>Questão 2. Tema: Regulamentação SUS. Sobre a lei orgânica do SUS No. 8080 é correto afirmar:</strong></label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta2" id="pergunta2a" value="a">
+                <label class="form-check-label" for="pergunta2a">
+                    a) Sendo universal, o SUS deve prover todo tipo de serviço médico com a mesma prioridade.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta2" id="pergunta2b" value="b">
+                <label class="form-check-label" for="pergunta2b">
+                    b) Respeitando o princípio da equidade todos os pedidos devem ser acolhidos com a mesma priorização.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta2" id="pergunta2c" value="c">
+                <label class="form-check-label" for="pergunta2c">
+                    c) Sendo integral, o SUS deve ofertar todo tipo de consulta e exame. O regulador deverá, pois, autorizar todas as solicitações que recebe, nunca negando solicitações.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta2" id="pergunta2d" value="d">
+                <label class="form-check-label" for="pergunta2d">
+                    d) Atendendo a uma alta demanda por exames e consultas, as solicitações devem ser priorizadas de acordo com o quadro clínico, devendo o regulador reconhecer a prioridade a partir das informações descritas nos campos adequados de regulação.
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label for="pergunta3" class="form-label"><strong>Questão 3. Tema: Ato de regulação. Marque a alternativa correta.</strong></label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta3" id="pergunta3a" value="a">
+                <label class="form-check-label" for="pergunta3a">
+                   a) É considerada boa prática iniciar o plantão de regulação médica checando as solicitações devolvidas ao médico regulador.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta3" id="pergunta3b" value="b">
+                <label class="form-check-label" for="pergunta3b">
+                   b) Durante a filtragem da Fila de Regulação, recomenda-se iniciar a pesquisa pelas solicitações mais recentes.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta3" id="pergunta3c" value="c">
+                <label class="form-check-label" for="pergunta3c">
+                   c) Ao notar que uma solicitação de consulta ou de exame foi inserida no sistema de regulação por um profissional não médico, esse pedido deverá ser negado, pois apenas médicos podem solicitar exames ou consultas.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta3" id="pergunta3d" value="d">
+                <label class="form-check-label" for="pergunta3d">
+                    d) Como regulador, não me cabe julgamento clínico, pois o ato de regulação é puramente algorítmico.
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label for="pergunta4" class="form-label"><strong>Questão 4. Tema: Autorização de Solicitações. Marque a alternativa correta.</strong></label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta4" id="pergunta4a" value="a">
+                <label class="form-check-label" for="pergunta2a">
+                    a) Se as informações de um pedido de consulta ou exame forem insuficientes, o médico regulador deve negar imediatamente a solicitação.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta4" id="pergunta4b" value="b">
+                <label class="form-check-label" for="pergunta4b">
+                    b) É considerado uma boa prática devolver a solicitação ao estabelecimento solicitante para que as informações clínicas sejam complementadas, caso estejam insuficientes.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta4" id="pergunta4c" value="c">
+                <label class="form-check-label" for="pergunta4c">
+                    c) Em nenhuma circunstância o médico regulador pode solicitar mais informações ao estabelecimento solicitante.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta4" id="pergunta4d" value="d">
+                <label class="form-check-label" for="pergunta4d">
+                    d) Ao receber uma solicitação com informações insuficientes, o médico regulador deve priorizá-la automaticamente como baixa prioridade.
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label for="pergunta5" class="form-label"><strong>Questão 5. Tema: Negação de Solicitações. Marque a alternativa correta.</strong></label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="perginta5" id="pergunta5a" value="a">
+                <label class="form-check-label" for="pergunta5a">
+                    a) O médico regulador nunca deve negar uma solicitação, pois todos os pedidos devem ser atendidos.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="perginta5" id="pergunta5b" value="b">
+                <label class="form-check-label" for="pergunta5b">
+                    b) Um pedido pode ser negado se o paciente desistiu ou se a solicitação foi feita por engano.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="perginta5" id="pergunta5c" value="c">
+                <label class="form-check-label" for="pergunta5c">
+                    c) Uma solicitação deve ser negada sempre que houver qualquer dúvida sobre as informações fornecidas.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="perginta5" id="pergunta5d" value="d">
+                <label class="form-check-label" for="pergunta5d">
+                    d) Ao negar uma solicitação, não é necessário justificar o motivo da negativa.
+                </label>
+            </div>
+        </div>
+        
+        <div class="mb-4">
+            <label for="pergunta6" class="form-label"><strong>Questão 6. Tema: Alteração de Fila. Marque a alternativa correta.</strong></label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta6" id="pergunta6a" value="a">
+                <label class="form-check-label" for="pergunta6a">
+                    a) Uma solicitação inserida na fila errada deve ser automaticamente negada pelo médico regulador.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta6" id="pergunta6b" value="b">
+                <label class="form-check-label" for="pergunta6b">
+                    b) O médico regulador pode alterar a solicitação para a fila correta e deve priorizá-la adequadamente.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta6" id="pergunta6c" value="c">
+                <label class="form-check-label" for="pergunta6c">
+                    c) Uma solicitação deve ser negada sempre que houver qualquer dúvida sobre as informações fornecidas.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta6" id="pergunta6d" value="d">
+                <label class="form-check-label" for="pergunta6d">
+                    d) Ao negar uma solicitação, não é necessário justificar o motivo da negativa.
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label for="pergunta7" class="form-label"><strong>Questão 7. Tema: Devolução de Solicitações. Marque a alternativa correta.</strong></label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta7" id="pergunta7a" value="a">
+                <label class="form-check-label" for="pergunta7a">
+                    a) O médico regulador nunca deve devolver uma solicitação ao estabelecimento solicitante, mesmo que as informações sejam insuficientes.
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta7" id="pergunta7b" value="b">
+                <label class="form-check-label" for="pergunta7b">
+                    b) É necessário justificar o motivo pelo qual a solicitação está sendo devolvida ao estabelecimento solicitante.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta7" id="pergunta7c" value="c">
+                <label class="form-check-label" for="pergunta7c">
+                    c) As devoluções devem ser feitas somente no final do plantão.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta7" id="pergunta7d" value="d">
+                <label class="form-check-label" for="pergunta7d">
+                    d) Não é necessário checar as devoluções no início e no fim de cada plantão.
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label for="pergunta8" class="form-label"><strong>Questão 8. Tema: Priorização de Solicitações. Marque a alternativa correta.</strong></label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta8" id="pergunta8a" value="a">
+                <label class="form-check-label" for="pergunta8a">
+                    a) Todas as solicitações de consulta ou exame devem ser priorizadas da mesma maneira, independentemente do quadro clínico.
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta8" id="pergunta8b" value="b">
+                <label class="form-check-label" for="pergunta8b">
+                    b) A priorização deve ser feita com base nas informações clínicas fornecidas, podendo variar de emergencial a baixa prioridade.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta8" id="pergunta8c" value="c">
+                <label class="form-check-label" for="pergunta8c">
+                    c) O médico regulador deve priorizar todas as solicitações como alta prioridade para garantir atendimento rápido.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta8" id="pergunta8d" value="d">
+                <label class="form-check-label" for="pergunta8d">
+                    d) As solicitações sem informações suficientes devem ser priorizadas como baixa prioridade.
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label for="pergunta9" class="form-label"><strong>Questão 9. Tema: Ato de Regulação. Marque a alternativa correta.</strong></label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta9" id="pergunta9a" value="a">
+                <label class="form-check-label" for="pergunta9a">
+                    a) Durante o plantão, o médico regulador deve iniciar a avaliação pelas solicitações mais antigas na fila.
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta9" id="pergunta9b" value="b">
+                <label class="form-check-label" for="pergunta9b">
+                    b) As solicitações de exames devem ser sempre autorizadas antes das solicitações de consultas.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta9" id="pergunta9c" value="c">
+                <label class="form-check-label" for="pergunta9c">
+                    c) A prioridade do atendimento deve ser definida pelo coordenador médico e não pelo médico regulador.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta9" id="pergunta9d" value="d">
+                <label class="form-check-label" for="pergunta9d">
+                    d) O médico regulador deve ignorar as devoluções ao regulador no início e fim de cada plantão.
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label for="pergunta10" class="form-label"><strong>Questão 10. Tema: Boas Práticas em Regulação. Marque a alternativa correta.</strong></label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta10" id="pergunta10a" value="a">
+                <label class="form-check-label" for="pergunta10a">
+                    a) O médico regulador deve buscar priorizar consultas e exames para pacientes de regiões distantes, de mais difícil acesso à saúde.
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta10" id="pergunta10b" value="b">
+                <label class="form-check-label" for="pergunta10b">
+                    b) As solicitações com informações clínicas detalhadas devem ser priorizadas mais rapidamente.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta10" id="pergunta10c" value="c">
+                <label class="form-check-label" for="pergunta10c">
+                    c) A comunicação com os solicitantes deve ser evitada para não causar atrasos no processo de regulação.
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="pergunta10" id="pergunta10d" value="d">
+                <label class="form-check-label" for="pergunta10d">
+                    d) Todas as solicitações devem ser autorizadas sem priorização para evitar conflitos.
+                </label>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between py-4">            
+            <a href="{% url 'home' %}" class="btn btn-secondary">Página Inicial</a>
+            <button type="submit" class="btn btn-success">Enviar Questionário</button>
+            
+        </div>
+    </form>
+</div>
+{% endblock %}
